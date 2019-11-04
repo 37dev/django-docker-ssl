@@ -16,7 +16,7 @@ right click in src folder > mark directory as > sources root). Make sure to regi
 
 You will need to run the postgres daemon to use django in development, but if you want to use the 
 postgres docker container, start it with `make build` then `docker start postgres`. You will need to set
-the container host into the development environament which you can get by usin the `make postgres-ip` command.
+the container host into the development environament which you can get by using the `make postgres-ip` command.
 
 In development mode, you **will not** be able to run nginx, unless you have all your modem ports forwarded.
 
