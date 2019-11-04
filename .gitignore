@@ -10,3 +10,4 @@ src/core/__pycache__/settings.cpython-35.pyc
 .env
 venv
 **/.DS_Store
+.envs
