@@ -29,7 +29,7 @@ Config options are self explanatory, but there are some important things to ment
 * EMAIL config must be set only if you will be using `send_email` in your project.
 * SENTRY_DSN is optional and will only track errors in django container
 * **important:** NGINX_HOST must just include your base domain. If you have `www.example.com`
-  it must be set as `example.com` . This is because when letsencrypt generates the certificates, it will
+  it must be set as `example.com` . This is because when certbot generates the certificates, it will
   use your base domain to generate a certificate valid for your www domain and non www domain.
 * If you want to create more subdomains, you will have to change the file in config>nginx>default.template
   and pass the correct env variables plus adding the correct directives. Also, add your subdomain to the certbot command.
