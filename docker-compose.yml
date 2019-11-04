@@ -1,0 +1,64 @@
+version: "3"
+
+volumes:
+  local-postgres-data:
+  local-postgres-data-backups:
+  static-volume:
+  media-volume:
+  certs-volume:
+
+services:
+  nginx:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: compose/nginx/Dockerfile
+    container_name: nginx
+    env_file:
+      - .envs/nginx/dev.env
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - static-volume:/home/django/app/static
+      - media-volume:/home/django/app/media
+      - certs-volume:/etc/letsencrypt
+    depends_on:
+      - web
+
+  web:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: compose/django/Dockerfile
+    container_name: django
+    depends_on:
+      - db
+    volumes:
+      - static-volume:/home/django/app/static
+      - media-volume:/home/django/app/media
+    expose:
+      - 8000
+    links:
+      - redis
+    env_file:
+      - .envs/django/dev.env
+
+  db:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: compose/postgres/Dockerfile
+    container_name: postgres
+    env_file:
+      - .envs/postgres/dev.env
+    volumes:
+      - local-postgres-data:/var/lib/postgresql/data
+      - local-postgres-data-backups:/backups
+
+  redis:
+    restart: unless-stopped
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"

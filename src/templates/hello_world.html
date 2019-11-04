@@ -1,0 +1,41 @@
+<head>
+    <title>My Django Project</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <center>
+        <div class="jumbotron">
+            <h2>Hello World!!</h2>
+        </div>
+        <p>This Project is developed using
+            <b>Django 2.2</b>.
+        </p>
+        <p>This page is being served through Gunicorn. You can access the
+            <a href='/admin'>admin site</a> as well.</p>
+
+        <p>Static contents are being served through Nginx.</p>
+        <p>Postgres is used as database for this Project.</p>
+        <p>Please check django logs in shell using command
+            <b>make shell-web</b>.</p>
+        <p>There you will see
+            <b>Printing Hello from Celery</b>, which is printed from celery method.</p>
+        <p>Redis was used as broker for Celery.</p>
+
+        <p class="lead">Enjoy your boilerplate for Django(with celery, postgresql and redis) and Docker.</p>
+        {% if demo_content.exists %}
+        <h2>Here are some demo contents from Demo model</h2>
+        {% for demo in demo_content %}
+        <h3>{{ demo.title }}</h3>
+        <p>{{ demo.body }}</p>
+        <img src="{{ demo.image.url }}">
+        {% endfor %}
+        {% endif %}
+        </div>
+
+    </center>
+</body>
+
+<footer>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</footer>
