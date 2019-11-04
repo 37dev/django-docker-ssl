@@ -33,7 +33,8 @@ Config options are self explanatory, but there are some important things to ment
   use your base domain to generate a certificate valid for your www domain and non www domain.
 * If you want to create more subdomains, you will have to change the file in config>nginx>default.template
   and pass the correct env variables plus adding the correct directives. Also, add your subdomain to the certbot command.
-* IS_STAGING must be set to 1 if you want to test your project in production to avoid rate limiting from letsencrypt.
+* IS_STAGING must be set to 1 if you want to test your project, to avoid rate limiting from letsencrypt.
+  In production, change it to 0
 
 # Production
 Once you have your project done, it's time to go into production mode!
