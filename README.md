@@ -2,6 +2,7 @@
 **ruddra:** [github.com/ruddra/docker-django](https://github.com/ruddra/docker-django)
 
 **staticfloat:** [github.com/staticfloat/docker-nginx-certbot](https://github.com/staticfloat/docker-nginx-certbot)
+
 This project was based on these two projects above. Special thanks for ruddra and staticfloat!
 
 # Goal:
