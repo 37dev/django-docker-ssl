@@ -21,7 +21,7 @@ To test your apps, you will have to use the default django development server (p
 Don't forget to install requirements while testing.
 
 # Configuration
-Configuration files are inside .envs folder. By default, dev.env files are loaded for each project.
+Configuration files are inside .envs folder. By default, dev.env files are loaded for each container.
 Config options are self explanatory, but there are some important things to mention:
 * DB config in django envs folder must be the same as it is in the postgres config.
 * Do not choose the username 'postgres' for the postgres config.
