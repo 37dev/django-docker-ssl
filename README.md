@@ -1,18 +1,22 @@
-# Credits
+## Credits
 **ruddra:** [github.com/ruddra/docker-django](https://github.com/ruddra/docker-django)
 
 **staticfloat:** [github.com/staticfloat/docker-nginx-certbot](https://github.com/staticfloat/docker-nginx-certbot)
 
 This project was based on these two projects above. Special thanks for ruddra and staticfloat!
 
-# Goal:
+## Goal:
 This project main goal is to provide a way to deploy django applications by using docker along with
 nginx, gunicorn and letsencrypt. Celery is also included (using redis) but you don't have to use it.
 
-# Development
+## Development
 You can clone this repo and start your project from scratch using this project. All your django apps 
 (with the command: python manage.py startapp) go in the 'src' folder (if you are using pycharm: -
 right click in src folder > mark directory as > sources root). Make sure to register your apps in src > core > settings
+
+You will need to run the postgres daemon to use django in development, but if you want to use the 
+postgres docker container, start it with `make build` then `docker start postgres`. You will need to set
+the container host into the development environament which you can get by usin the `make postgres-ip` command.
 
 In development mode, you **will not** be able to run nginx, unless you have all your modem ports forwarded.
 
@@ -20,7 +24,7 @@ To test your apps, you will have to use the default django development server (p
 
 Don't forget to install requirements while testing.
 
-# Configuration
+## Configuration
 Configuration files are inside .envs folder. By default, dev.env files are loaded for each container.
 Config options are self explanatory, but there are some important things to mention:
 * DB config in django envs folder must be the same as it is in the postgres config.
@@ -36,7 +40,7 @@ Config options are self explanatory, but there are some important things to ment
 * IS_STAGING must be set to 1 if you want to test your project, to avoid rate limiting from letsencrypt.
   In production, change it to 0
 
-# Production
+## Production
 Once you have your project done, it's time to go into production mode!
 
 1 - Send your project to your server (Debian servers are preferred, for now), without virtualenv files.
@@ -53,3 +57,24 @@ Once you have your project done, it's time to go into production mode!
 It is a good practice, on the first run, to check for any errors.. To do so, start your project with `make up-non-daemon`
 
 If you see no errors, it is probably safe to start it normally with `make up`
+
+## Commands
+To use this project, run this commands:
+
+1. `make up` to build the project and starting containers.
+2. `make build` to build the project.
+3. `make start` to start containers if project has been up already.
+4. `make stop` to stop containers.
+5. `make shell-web` to shell access web container.
+6. `make shell-db` to shell access db container.
+7. `make shell-nginx` to shell access nginx container.
+8. `make logs-web` to log access web container.
+9. `make logs-db` to log access db container.
+10. `make logs-nginx` to log access nginx container.
+11. `make collectstatic` to put static files in static directory.
+12. `make log-web` to log access web container.
+13. `make log-db` to log access db container.
+14. `make log-nginx` to log access nginx container.
+15. `make restart` to restart containers.
+16. `make prune` to delete everything, including volumes **warning**
+17. `make postgres-ip` to return postgres container ip, in case you want to use it
