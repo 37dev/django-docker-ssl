@@ -59,7 +59,7 @@ It is a good practice, on the first run, to check for any errors.. To do so, sta
 If you see no errors, it is probably safe to start it normally with `make up`
 
 ## Commands
-To use this project, run this commands:
+To run these commands, go inside your project app, where the Makefile is
 
 1. `make up` to build the project and starting containers.
 2. `make build` to build the project.
