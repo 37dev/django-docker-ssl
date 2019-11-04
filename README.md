@@ -13,8 +13,11 @@ nginx, gunicorn and letsencrypt. Celery is also included (using redis) but you d
 You can clone this repo and start your project from scratch using this project. All your django apps 
 (with the command: python manage.py startapp) go in the 'src' folder (if you are using pycharm: -
 right click in src folder > mark directory as > sources root). Make sure to register your apps in src > core > settings
+
 In development mode, you **will not** be able to run nginx, unless you have all your modem ports forwarded.
+
 To test your apps, you will have to use the default django development server (python manage.py runserver).
+
 Don't forget to install requirements while testing.
 
 # Configuration
