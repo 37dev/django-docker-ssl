@@ -45,3 +45,6 @@ prune:
 
 postgres-ip:
 	docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' postgres
+
+postgres-start:
+	docker-compose build db && docker-compose up -d db
