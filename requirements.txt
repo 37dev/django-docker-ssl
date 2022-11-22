@@ -8,7 +8,7 @@ gunicorn==19.9.0
 importlib-metadata==0.23
 kombu==4.5.0
 more-itertools==7.2.0
-Pillow==9.0.1
+Pillow==9.3.0
 psycopg2==2.8.4
 pytz==2019.1
 redis==3.2.1
