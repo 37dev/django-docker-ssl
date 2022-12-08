@@ -1,7 +1,7 @@
 amqp==2.4.2
 billiard==3.6.0.0
 celery==5.2.2
-certifi==2019.9.11
+certifi==2022.12.7
 Django==2.2.27
 django-crispy-forms==1.8.0
 gunicorn==19.9.0
